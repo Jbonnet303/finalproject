@@ -1,0 +1,26 @@
+{
+  "name": "finalproject",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jbonnet303/finalproject.git"
+  },
+  "author": "Jon Bonnet",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jbonnet303/finalproject/issues"
+  },
+  "homepage": "https://github.com/Jbonnet303/finalproject#readme",
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "express-session": "^1.15.6",
+    "method-override": "^3.0.0",
+    "mongoose": "^5.2.9"
+  }
+}
