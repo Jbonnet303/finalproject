@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="/main.css">
+  </head>
+  <body>
+
+    <h1>EDIT PRIZE</h1>
+
+
+<div class='edit-container'>
+
+<form action="/billiards/<%=billiard.id%>?_method=PUT" method="POST">
+  <img src="<%=billiard.img %>"</a><br/>
+Name: <br/> <input type="text" name="name" value="<%=billiard.name%>"><br/>
+Description: <br/> <input type="text" name="description" value="<%=billiard.description%>"><br/>
+Image: <br/> <input type="text" name="image" value="<%=billiard.img%>"><br/>
+Inventory: <br/> <input type="number" name="quantity" value="<%=billiard.quantity%>"><br/>
+
+<div class="edit">
+<input type="submit" name="" value="Submit Changes" /><br/>
+</div>
+
+  </form>
+
+  </div>
+
+  </body>
+</html>

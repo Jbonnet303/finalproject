@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+      <link rel="stylesheet" href="/main.css">
+  </head>
+  <body>
+
+    <h2>Hello</h2>
+
+    <div class="prize-container">
+
+      <% for(let i = 0; i < billiards.length; i++){ %>
+
+          <a href="/billiards/prize/new<%=billiards[i].id%>"</a><br/>
+          <img src="<%=billiards[i].img%>"><br/>
+               <%=billiards[i].name; %><br/>
+               <%=billiards[i].description; %><br/>
+               <%=billiards.quantity; %><br/>
+
+            <% } %>
+
+  </div>
+
+  <a href="/billiards/prize/new"><button class="create">New Prize</button></a>
+
+</body>
+
+</html>
