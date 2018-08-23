@@ -1,3 +1,43 @@
+/* Background For English Page */
+.foot-background {
+  background: url('http://wallpapers-hd-wide.com/wp-content/uploads/2016/01/billiard-table-and-balls-1920x1080.jpg');
+background-repeat: no-repeat;
+background-position: stretch;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+height: 100%;
+padding: 0;
+margin: 0;
+box-sizing: border-box;
+text-align: center;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: stretch;
+}
+
+/* Background For English Page */
+.english-background {
+  background: url('https://www.southwestbilliards.com.au/zoom-admin/upload/slider_image/slider_1489584444.jpg');
+background-repeat: no-repeat;
+background-position: stretch;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+height: 100%;
+padding: 0;
+margin: 0;
+box-sizing: border-box;
+text-align: center;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: stretch;
+}
+
 /* CSS For Main Background Img */
 body {
   background: url('https://calendarmedia.blob.core.windows.net/assets/f4712d39-47eb-4522-8899-507068ef2c1a.jpg');
@@ -18,9 +58,9 @@ body {
   align-items: stretch;
 }
 
-#demoparagraph {
+#two-column {
   background-color: white;
-  opacity:0.9;
+  opacity:0.7;
   -webkit-column-count: 2;
   -moz-column-count: 2;
   column-count: 2;
@@ -32,9 +72,14 @@ body {
   column-rule: 1px solid #1C6EA4;
 }
 
+img {
+  width: 250px;
+  height: 250px;
+}
+
 p {
   font-size: 23px;
-  padding: 10px;
+  padding: 15px;
 }
 
 h1 {
@@ -59,13 +104,33 @@ h3 {
 }
 
 button {
+  border-radius: 10%;
   font-weight: 500;
   font-size: 25px;
   cursor: pointer;
 }
 
+button:hover {
+  background-color: yellow;
+}
+
 strong {
   font-size: 30px;
+}
+
+.row-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+}
+
+.home-button {
+  opacity: 0.7;
+}
+
+.back-button {
+  opacity: 0.7;
 }
 
 .main-button-container {
@@ -76,7 +141,7 @@ strong {
 .rdy-break-button {
   padding-bottom: 20px;
   border-radius: 10%;
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 900;
   color: #005ff9;
   opacity: 0.9;
@@ -87,8 +152,6 @@ strong {
   opacity: .7;
   padding: 50px;
   transition: transform 1s;
-  /* width: 100px;
-  height: 100px; */
   margin: 0 auto;
 }
 
@@ -106,6 +169,7 @@ strong {
   padding-bottom: 10px;
 }
 
+/* Linkedin/Github/Footer CSS */
 .link1, .link2, .footer {
   border-radius: 100%;
   background-color: black;

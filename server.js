@@ -1,22 +1,3 @@
-// console.log(express);
-// const express = require('express');
-// const app = express();
-// const port = (3000);
-//
-// app.get('/', (request, response) => {
-//   response.send('hello world!!!!');
-//   });
-//
-// app.get('/home', (request, response) => {
-//   response.send('');
-// });
-//
-//
-//   app.listen(port, () => {
-//     console.log('I am listening on port 3000');
-//   });
-
-// console.log('Hello');
 const express = require('express');
 const app = express();
 const Billiard = require('./models/billiards.js');
@@ -33,13 +14,35 @@ app.use(methodOverride('_method'));
 app.use(express.static('public'));
 app.use(express.urlencoded({extended: false}));
 
-
-
+app.get('/billiards/prize/seed', (request, response) => {
+  Billiard.create (
+    [
+      {
+        name: 'Steel Bar Shaker',
+        description: 'Featuring a durable stainless steel construction, this bar shaker helps keep your cold cocktails chilled until served!',
+        img: 'https://cdnimg.webstaurantstore.com/images/products/extra_large/31015/413339.jpg',
+        quantity: 100
+      }, {
+        name: 'Cocktail Bar Strainer',
+        description: 'Serving as the perfect bar accessory, this four-pronged stainless steel strainer allows you to drain cocktails and other assorted beverages through a glass or shaker of ice.',
+        img: 'https://cdnimg.webstaurantstore.com/images/products/extra_large/49370/828059.jpg',
+        quantity: 150
+      }, {
+        name: 'Cocktail Kit',
+        description: 'It includes 13 separate pieces, and each piece serves a unique function to help make the drink mixing process faster and easier.',
+        img: 'https://cdnimg.webstaurantstore.com/images/products/large/446658/1646130.jpg',
+        quantity: 200
+      },
+  ],
+    (error, data) => {
+      response.redirect('/billiards/prize');
+      }
+    )
+  });
 
 app.get('/', (request, response) => {
   response.send('this works');
 });
-
 
 // Index Route Home Page
 app.get('/billiards', (request, response) => {
@@ -50,8 +53,6 @@ response.render('index.ejs', {
   });
 // });
 
-
-
 // 8 Ball Route Page
 app.get('/billiards/eight', (request, response) => {
   Billiard.find({}, (error, allBillards) => {
@@ -61,8 +62,107 @@ app.get('/billiards/eight', (request, response) => {
   });
 });
 
+// Route English on Cue Ball
+app.get('/billiards/english', (request, response) => {
+  Billiard.find({}, (error, allBilliards) => {
+  response.render('english.ejs', {
+  billiards: allBilliards
+    });
+  });
+});
 
-// // Route Specialtiy Drink Page
+// Route Specialtiy Drink Page
+app.get('/billiards/run', (request, response) => {
+  Billiard.find({}, (error, allBilliards) => {
+  response.render('run.ejs', {
+  billiards: allBilliards
+    });
+  });
+});
+
+// Route 5 Tips/Almost done
+app.get('/billiards/foot', (request, response) => {
+  Billiard.find({}, (error, allBilliards) => {
+  response.render('foot.ejs', {
+  billiards: allBilliards
+    });
+  });
+});
+
+// Route Prize Page
+app.get('/billiards/prize', (request, response) => {
+  Billiard.find({}, (error, allBilliards) => {
+  response.render('prize.ejs', {
+  billiards: allBilliards
+    });
+  });
+});
+
+// Route Slow Mo Page
+app.get('/billiards/slow', (request, response) => {
+  Billiard.find({}, (error, allBilliards) => {
+  response.render('slow.ejs', {
+  billiards: allBilliards
+    });
+  });
+});
+
+// Show Route
+app.get('/billiards/prize/:id', (request, response) => {
+  Billiard.findById(request.params.id, (error, foundBilliard) => {
+  response.render('show.ejs', {
+    billiard: foundBilliard
+  });
+  })
+});
+
+//Edit Route
+app.get('/billiards/:id/edit', (request, response) => {
+  Billiard.findById(request.params.id, (error, foundBilliard) => {
+    response.render('edit.ejs', {
+        billiard: foundBilliard
+    });
+  });
+});
+
+//New edited Information Route
+app.put('/billiards/prize/:id', (request, response) => {
+  Billiard.findByIdAndUpdate(request.params.id, request.body, {new:true}, (error, updateModel) => {
+    response.redirect('/billiards/prize');
+  });
+});
+
+// Create Route
+app.get('/billiards/new', (request, response) => {
+response.render('new.ejs');
+});
+
+//Post New Product Route
+app.post('/billiards/prize', (request, response) => {
+  Billiard.create(request.body, (error, createdBilliard) => {
+    response.redirect('/billiards/prize');
+  })
+});
+
+// Buy
+app.put('/billiards/prize/:id/buy', (request, response) => {
+Billiard.findByIdAndUpdate(request.params.id, {$inc:{quantity: -1}}, (error) => {
+  if (error) {
+    response.send(error.message)
+  } else {
+    response.redirect('back')
+  }
+});
+});
+
+// Delete Route
+app.delete('/billiards/:id', (request, response) => {
+  Billiard.findByIdAndRemove(request.params.id, (error, deletedBilliard) => {
+    response.redirect('/billiards/prize');
+  })
+});
+
+// // Route Normal page Page
 // app.get('/bars/drink', (request, response) => {
 //   Bar.find({}, (error, allBars) => {
 //   response.render('drink.ejs', {
@@ -70,79 +170,7 @@ app.get('/billiards/eight', (request, response) => {
 //     });
 //   });
 // });
-//
-//
-// // Route Locations Page
-// app.get('/bars/location', (request, response) => {
-//   Bar.find({}, (error, allBars) => {
-//   response.render('location.ejs', {
-//   bars: allBars
-//     });
-//   });
-// });
-//
-//
-// // Create Route
-// app.get('/bars/shop/new', (request, response) => {
-// response.render('new.ejs');
-// });
-//
-// //Post New Product Route
-// app.post('/bars/shop', (request, response) => {
-//   Bar.create(request.body, (error, createdBar) => {
-//     response.redirect('/bars/shop');
-//   })
-// });
-//
-//
-//
-//
-// //Edit Route
-// app.get('/bars/:id/edit', (request, response) => {
-//   Bar.findById(request.params.id, (error, foundBar) => {
-//     response.render('edit.ejs', {
-//         bar: foundBar
-//     });
-//   });
-// });
-//
-// //New edited Information Route
-// app.put('/bars/shop/:id', (request, response) => {
-//   Bar.findByIdAndUpdate(request.params.id, request.body, {new:true}, (error, updateModel) => {
-//     response.redirect('/bars/shop');
-//   });
-// });
-//
-//
-//
-// // Show Route
-// app.get('/bars/shop/:id', (request, response) => {
-//   Bar.findById(request.params.id, (error, foundBar) => {
-//   response.render('show.ejs', {
-//     bar: foundBar
-//   });
-//   })
-// });
-//
-//
-// // Buy
-// app.put('/bars/shop/:id/buy', (request, response) => {
-// Bar.findByIdAndUpdate(request.params.id, {$inc:{quantity: -1}}, (error) => {
-//   if (error) {
-//     response.send(error.message)
-//   } else {
-//     response.redirect('back')
-//   }
-// });
-// });
-//
-//
-// // Delete Route
-// app.delete('/bars/:id', (request, response) => {
-//   Bar.findByIdAndRemove(request.params.id, (error, deletedBar) => {
-//     response.redirect('/bars/shop');
-//   })
-// });
+
 
 
 app.listen(PORT, () => {

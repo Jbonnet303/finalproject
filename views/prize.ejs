@@ -9,22 +9,19 @@
 
     <h2>Hello</h2>
 
-    <div class="prize-container">
+      <div class="prize-container">
 
-      <% for(let i = 0; i < billiards.length; i++){ %>
+            <% for(let i = 0; i < billiards.length; i++){ %>
+            <a href="/billiards/prize/<%=billiards[i].id%>"</a><br/>
+            <img src="<%=billiards[i].img%>"><br/>
+            <%=billiards[i].name; %><br/>
+            $<%=billiards[i].description; %><br/>
+            <%=billiards[i].quantity; %><br/>
 
-          <a href="/billiards/prize/new<%=billiards[i].id%>"</a><br/>
-          <img src="<%=billiards[i].img%>"><br/>
-               <%=billiards[i].name; %><br/>
-               <%=billiards[i].description; %><br/>
-               <%=billiards.quantity; %><br/>
+              <% } %>
 
-            <% } %>
+      </div>
+          <a href="/billiards/new"><button class="create">New Prize</button></a>
 
-  </div>
-
-  <a href="/billiards/prize/new"><button class="create">New Prize</button></a>
-
-</body>
-
+  </body>
 </html>
