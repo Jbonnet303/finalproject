@@ -98,14 +98,14 @@ app.get('/billiards/prize', (request, response) => {
   });
 });
 
-// Route Slow Mo Page
-app.get('/billiards/slow', (request, response) => {
-  Billiard.find({}, (error, allBilliards) => {
-  response.render('slow.ejs', {
-  billiards: allBilliards
-    });
-  });
-});
+// // Route Slow Mo Page
+// app.get('/billiards/slow', (request, response) => {
+//   Billiard.find({}, (error, allBilliards) => {
+//   response.render('slow.ejs', {
+//   billiards: allBilliards
+//     });
+//   });
+// });
 
 // Show Route
 app.get('/billiards/prize/:id', (request, response) => {

@@ -8,9 +8,19 @@
 
   <body class="show-background">
 
-        <h3>Great Choice!</h3>
+    <div class="row-button">
 
-      <div class='show-container'>
+        <div class="back-button">
+            <a href="/billiards/prize"><button class="shop-button">BACK</button></a>
+        </div>
+
+        <div class="home-button">
+            <a href="/billiards"><button class="shop-button">HOME</button></a>
+        </div>
+
+    </div>
+
+    <div class='show-container'>
 
           <a href="/billiards/<%=billiard.id%>"</a><br/>
           <img src="<%=billiard.img%>"><br/>
@@ -23,7 +33,7 @@
              <% } else { %>
 
              <form action='/billiards/prize/<%=billiard.id%>/buy?_method=PUT' method='POST'>
-                  <button>Buy</button>
+                  <button>PICK PRIZE</button>
              </form>
 
              <form action="/billiards/<%=billiard.id%>?_method=DELETE" method="POST">
@@ -32,11 +42,9 @@
 
             <% } %>
 
+      <a href="/billiards/<%=billiard.id; %>/edit"><button class="edit">EDIT PRIZE</button></a>
 
-
-          <a href="/billiards/<%=billiard.id; %>/edit"><button class="edit">Edit Prize</button></a>
-
-        </div>
+    </div>
 
   </body>
 </html>
