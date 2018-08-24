@@ -1,7 +1,11 @@
 # finalproject
 Break & Run
-GitHub - Project 5 - https://github.com/Jbonnet303/finalproject
-Heroku - Project 5 - https://hidden-plains-78127.herokuapp.com/billiards
+
+GitHub: 
+Project 5 - https://github.com/Jbonnet303/finalproject
+
+Heroku:
+Project 5 - https://hidden-plains-78127.herokuapp.com/billiards
 
 Summary:
 This website teaches beginner billiards players to become as good as the pros. Just follow the easy steps and practice breaking and running the table.
