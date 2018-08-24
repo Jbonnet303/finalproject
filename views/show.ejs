@@ -5,18 +5,21 @@
       <title></title>
       <link rel="stylesheet" href="/main.css">
     </head>
-  <body>
+
+  <body class="show-background">
+
+        <h3>Great Choice!</h3>
 
       <div class='show-container'>
 
           <a href="/billiards/<%=billiard.id%>"</a><br/>
           <img src="<%=billiard.img%>"><br/>
-           <%=billiard.name; %><br/>
-           Description: <%=billiard.description; %><br/>
-           Quantity: <%=billiard.quantity; %><br/>
+           Name:&ensp;<%=billiard.name; %><br/>
+           Description:&ensp;<%=billiard.description; %><br/>
+           Quantity:&ensp;<%=billiard.quantity; %><br/>
 
              <% if (billiard.quantity <= 0) { %>
-                   <h4 class="out-of-stock"> OUT OF STOCK </h4>
+                   <h4 class="out-of-stock"> CONGRATULATIONS! FANTASTIC PICK! </h4>
              <% } else { %>
 
              <form action='/billiards/prize/<%=billiard.id%>/buy?_method=PUT' method='POST'>

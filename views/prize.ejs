@@ -5,9 +5,12 @@
     <title></title>
       <link rel="stylesheet" href="/main.css">
   </head>
-  <body>
 
-    <h2>Heloooooo</h2>
+      <h2>Pick Your Prize!</h2>
+
+        <a href="/billiards/new"><button class="prize-button">New Prize</button></a>
+
+  <body class="prize-background">
 
       <div class="prize-container">
 
@@ -15,13 +18,10 @@
             <a href="/billiards/prize/<%=billiards[i].id%>"</a><br/>
             <img src="<%=billiards[i].img%>"><br/>
             <%=billiards[i].name; %><br/>
-            $<%=billiards[i].description; %><br/>
-            <%=billiards[i].quantity; %><br/>
 
               <% } %>
 
       </div>
-          <a href="/billiards/new"><button class="create">New Prize</button></a>
 
   </body>
 </html>

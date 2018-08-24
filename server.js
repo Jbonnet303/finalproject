@@ -18,20 +18,20 @@ app.get('/billiards/prize/seed', (request, response) => {
   Billiard.create (
     [
       {
-        name: 'Steel Bar Shaker',
-        description: 'Featuring a durable stainless steel construction, this bar shaker helps keep your cold cocktails chilled until served!',
-        img: 'https://cdnimg.webstaurantstore.com/images/products/extra_large/31015/413339.jpg',
-        quantity: 100
+        name: 'Racking Tool',
+        description: 'Use to rack when playing 8 ball!',
+        img: 'https://images-na.ssl-images-amazon.com/images/I/41l-k3lrDqL._SX425_.jpg',
+        quantity: 1
       }, {
-        name: 'Cocktail Bar Strainer',
-        description: 'Serving as the perfect bar accessory, this four-pronged stainless steel strainer allows you to drain cocktails and other assorted beverages through a glass or shaker of ice.',
-        img: 'https://cdnimg.webstaurantstore.com/images/products/extra_large/49370/828059.jpg',
-        quantity: 150
+        name: 'Cue Stick',
+        description: 'Use for breaking and running the table!',
+        img: 'http://pluspng.com/img-png/cue-png-heritage-cue-black-w-light-wood-420.png',
+        quantity: 1
       }, {
-        name: 'Cocktail Kit',
-        description: 'It includes 13 separate pieces, and each piece serves a unique function to help make the drink mixing process faster and easier.',
-        img: 'https://cdnimg.webstaurantstore.com/images/products/large/446658/1646130.jpg',
-        quantity: 200
+        name: 'Cue Ball',
+        description: 'Use the dots and watch the spin on the cue ball!',
+        img: 'https://cdn7.bigcommerce.com/s-c1tzcg0txe/products/3636/images/1669/ozonepark_2460_1395343107__84352.1490639034.500.750.jpg?c=2',
+        quantity: 1
       },
   ],
     (error, data) => {
